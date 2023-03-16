@@ -20,5 +20,6 @@ interface IPersona{
 let PersonaI: IPersona={nome: 'Mario',eta:28, indirizzo:{strada:'via Rossi',
 citta:'Rimini',stato:'Italia'}};
 function stampaPersona(p:IPersona):void{
-    console.log(p.)
+    console.log(p.indirizzo);
 }
+stampaPersona(PersonaI);
