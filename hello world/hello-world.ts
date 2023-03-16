@@ -162,5 +162,6 @@ type UserData = {
         function spedisciAIndirizzo(addr:IUserAddress):void{
             console.log("spedisci a indirizzo: ",addr.address);
         }
-        spedisciAIndirizzo(userI);//in questo caso mi estrae solo il sottoinsieme dell'indirizzo via Dante 4
+        spedisciAIndirizzo(userI);//in questo caso mi estrae solo il sottoinsieme
+        // dell'indirizzo via Dante 4
         
