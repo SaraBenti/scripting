@@ -19,7 +19,7 @@ interface IPersona {
   };
 }
 /**
- * posso anche fare un'interfaccia a parte per l'indirizo in questo modo
+ * posso anche fare un'interfaccia a parte per l'indirizzo in questo modo
  * 
  * interface IIndirizzo{
  * strada: string;
@@ -180,3 +180,22 @@ let listaDisponibili = disponibile(listaProdotti);
 
 console.log(listaDisponibili);
 
+/**
+ * tipo-04.ts
+Definisci un tipo di dato per rappresentare un numero di telefono. 
+L'input dovrebbe essere una stringa con il formato "xxx-xxx-xxxx", 
+dove "x" rappresenta un cifra numerica. Crea una funzione che accetta un numero di telefono
+ come parametro e restituisce true se il formato è corretto e false altrimenti.
+ */
+let telefono : string;
+
+function ValidaTelefono(string){
+  if(telefono.length===12 && telefono.substring(3)==="-"
+  && telefono.substring(7)==="-" && (telefono.substring(0,3)).match("[0-9]")
+  && (telefono.substring(4,7)).match("[0-9]") && (telefono.substring(8,12)).match("[0-9]")){
+    return true;
+  }else{
+    return false;
+  }
+
+}
