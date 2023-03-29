@@ -36,6 +36,7 @@ interface IPersona {
  */
 
 let personaI: IPersona = {
+  //oggetti in json
   nome: "Mario",
   eta: 28,
   indirizzo: { strada: "via Rossi", citta: "Rimini", stato: "Italia" },
@@ -187,15 +188,115 @@ L'input dovrebbe essere una stringa con il formato "xxx-xxx-xxxx",
 dove "x" rappresenta un cifra numerica. Crea una funzione che accetta un numero di telefono
  come parametro e restituisce true se il formato è corretto e false altrimenti.
  */
-let telefono : string;
+let telefono: string;
 
-function ValidaTelefono(string){
-  if(telefono.length===12 && telefono.substring(3)==="-"
-  && telefono.substring(7)==="-" && (telefono.substring(0,3)).match("[0-9]")
-  && (telefono.substring(4,7)).match("[0-9]") && (telefono.substring(8,12)).match("[0-9]")){
+function validaTelefono(telefono: string): boolean {
+  if (
+    telefono.length === 12 &&
+    telefono.substring(3,4) === "-" &&
+    telefono.substring(7,8) === "-" &&
+    telefono.substring(0, 3).match("^[0-9]+$") && 
+    //nelle regular expression dall'inizio della substring
+    // è fatta tutta di numeri? ^ []+$
+    //oppure scrivere
+    //[0-9]{3}che significa tutti e 3 i caratteri
+    telefono.substring(4, 7).match("^[0-9]+$") &&
+    telefono.substring(8, 12).match("^[0-9]+$")
+  ) {
     return true;
-  }else{
+  } else {
     return false;
   }
-
 }
+//altro modo di fare l'esercizio
+function validaTelefono1(telefono:string):boolean{
+  if (
+    telefono.length === 12 &&
+    (telefono.match("[0-9]{3}-[0-9]{3}-[0-9]{4}")))
+    {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+/**
+ * tipo-05.ts
+Definisci un tipo di dato per rappresentare un punteggio.
+Il punteggio dovrebbe essere un numero compreso tra 0 e 100.
+Crea una funzione che accetta un punteggio come parametro e
+restituisce una stringa che indica se il punteggio è insufficiente,
+sufficiente, buono o eccellente.
+ */
+
+function punteggio(number) {
+  if (number >= 0 && number <= 100) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+/**
+ * tipo-06.ts
+Crea un'interfaccia per rappresentare un libro 
+con le seguenti proprietà: titolo (stringa), 
+autore (stringa), anno di pubblicazione (numero) 
+e genere (stringa). Crea un array di libri e scrivi 
+una funzione che accetta un genere come parametro e 
+restituisce un nuovo array contenente solo i libri 
+del genere specificato.
+ */
+interface Libro{
+  titolo:string;
+  autore:string;
+  annoPubblicazione:number;
+  genere:string;
+}
+
+// let libro1:Libro={
+//   titolo:"L'alchimista",
+//   autore:"Paulo Coelho",
+//   annoPubblicazione:1988,
+//   genere:"Romanzo"
+// }
+// let libro2:Libro={
+//   titolo:"Piccolo Principe",
+//   autore:"Antoine De Saint Exupery",
+//   annoPubblicazione:1943,
+//   genere:"Fantasy"
+// }
+// let libro3:Libro={
+//   titolo:"Cappuccetto Rosso",
+//   autore:"B. Grimm",
+//   annoPubblicazione:1857,
+//   genere:"Fantasy"
+// }
+// let libro4:Libro={
+//   titolo:"Pinocchio",
+//   autore:"C.Collodi",
+//   annoPubblicazione:1883,
+//   genere:"Fantasy"
+// }
+// let libri: Libro[] = [libro1, libro2, libro3, libro4, libro5];
+
+//oppure scrivere tutto dentro un array
+let libri: Libro[] = [
+  {titolo: "Violeta", autore: "Isabel Allende", annoPubblicazione: 2023, genere: "Romanzo" },
+  { titolo: "Piccolo Principe", autore: "Antoine De Saint Exupery", annoPubblicazione:1943, genere:"Fantasy"},
+  {titolo:"Cappuccetto Rosso", autore:"B. Grimm", annoPubblicazione:1857,genere:"Fantasy"},
+  {titolo:"Pinocchio", autore:"C.Collodi", annoPubblicazione:1883,genere:"Aventura"},
+  {titolo:"The Jungle Book", autore:"R.Kipling", annoPubblicazione:1894,genere:"Racconti"}
+];
+
+function filtraLibriPerGenere(libri:Libro[],genere:string):Libro[]{
+  let libriFiltrati: Libro[] = [];
+    for (let libro of libri) {
+        if (libro.genere === genere) {
+            libriFiltrati.push(libro);
+        }
+    }
+    return libriFiltrati;
+}
+console.log(filtraLibriPerGenere(libri, "Fantasy"));
