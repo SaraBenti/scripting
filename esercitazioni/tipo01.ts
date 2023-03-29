@@ -193,9 +193,9 @@ let telefono: string;
 function validaTelefono(telefono: string): boolean {
   if (
     telefono.length === 12 &&
-    telefono.substring(3,4) === "-" &&
-    telefono.substring(7,8) === "-" &&
-    telefono.substring(0, 3).match("^[0-9]+$") && 
+    telefono.substring(3, 4) === "-" &&
+    telefono.substring(7, 8) === "-" &&
+    telefono.substring(0, 3).match("^[0-9]+$") &&
     //nelle regular expression dall'inizio della substring
     // è fatta tutta di numeri? ^ []+$
     //oppure scrivere
@@ -209,17 +209,13 @@ function validaTelefono(telefono: string): boolean {
   }
 }
 //altro modo di fare l'esercizio
-function validaTelefono1(telefono:string):boolean{
-  if (
-    telefono.length === 12 &&
-    (telefono.match("[0-9]{3}-[0-9]{3}-[0-9]{4}")))
-    {
-      return true;
-    } else {
-      return false;
-    }
+function validaTelefono1(telefono: string): boolean {
+  if (telefono.length === 12 && telefono.match("[0-9]{3}-[0-9]{3}-[0-9]{4}")) {
+    return true;
+  } else {
+    return false;
+  }
 }
-
 
 /**
  * tipo-05.ts
@@ -229,15 +225,32 @@ Crea una funzione che accetta un punteggio come parametro e
 restituisce una stringa che indica se il punteggio è insufficiente,
 sufficiente, buono o eccellente.
  */
+let punteggio: number;
 
-function punteggio(number) {
-  if (number >= 0 && number <= 100) {
-    return true;
+function riceviPunteggio(punteggio: number): string |undefined {
+  //ho cercato sulla documentazione perchè se ritornavo solo string mi dava errore
+  //Function lacks ending return statement and return type does not include 'undefined'.
+  //ho inserito |undefined ma non ho capito il perchè!!!!!!!!!!
+  if (punteggio >= 0 && punteggio <= 100) {
+    if (punteggio < 60) {
+      return "Punteggio insufficiente";
+    }
+    else if (punteggio >= 60 && punteggio < 75) {
+      return "Punteggio sufficiente";
+    }
+    else if (punteggio >= 75 && punteggio < 90) {
+      return "Punteggio buono";
+    }
+    else if (punteggio >= 90) {
+      return "Punteggio eccellente";
+    }
   } else {
-    return false;
+    return "Il punteggio non è valido";
   }
 }
-
+punteggio = 105;
+let p=riceviPunteggio(punteggio);
+console.log(p);
 /**
  * tipo-06.ts
 Crea un'interfaccia per rappresentare un libro 
@@ -248,11 +261,11 @@ una funzione che accetta un genere come parametro e
 restituisce un nuovo array contenente solo i libri 
 del genere specificato.
  */
-interface Libro{
-  titolo:string;
-  autore:string;
-  annoPubblicazione:number;
-  genere:string;
+interface Libro {
+  titolo: string;
+  autore: string;
+  annoPubblicazione: number;
+  genere: string;
 }
 
 // let libro1:Libro={
@@ -283,20 +296,145 @@ interface Libro{
 
 //oppure scrivere tutto dentro un array
 let libri: Libro[] = [
-  {titolo: "Violeta", autore: "Isabel Allende", annoPubblicazione: 2023, genere: "Romanzo" },
-  { titolo: "Piccolo Principe", autore: "Antoine De Saint Exupery", annoPubblicazione:1943, genere:"Fantasy"},
-  {titolo:"Cappuccetto Rosso", autore:"B. Grimm", annoPubblicazione:1857,genere:"Fantasy"},
-  {titolo:"Pinocchio", autore:"C.Collodi", annoPubblicazione:1883,genere:"Aventura"},
-  {titolo:"The Jungle Book", autore:"R.Kipling", annoPubblicazione:1894,genere:"Racconti"}
+  {
+    titolo: "Violeta",
+    autore: "Isabel Allende",
+    annoPubblicazione: 2023,
+    genere: "Romanzo",
+  },
+  {
+    titolo: "Piccolo Principe",
+    autore: "Antoine De Saint Exupery",
+    annoPubblicazione: 1943,
+    genere: "Fantasy",
+  },
+  {
+    titolo: "Cappuccetto Rosso",
+    autore: "B. Grimm",
+    annoPubblicazione: 1857,
+    genere: "Fantasy",
+  },
+  {
+    titolo: "Pinocchio",
+    autore: "C.Collodi",
+    annoPubblicazione: 1883,
+    genere: "Aventura",
+  },
+  {
+    titolo: "The Jungle Book",
+    autore: "R.Kipling",
+    annoPubblicazione: 1894,
+    genere: "Racconti",
+  },
 ];
 
-function filtraLibriPerGenere(libri:Libro[],genere:string):Libro[]{
+function filtraLibriPerGenere(libri: Libro[], genere: string): Libro[] {
   let libriFiltrati: Libro[] = [];
-    for (let libro of libri) {
-        if (libro.genere === genere) {
-            libriFiltrati.push(libro);
-        }
+  for (let libro of libri) {
+    if (libro.genere === genere) {
+      libriFiltrati.push(libro);
     }
-    return libriFiltrati;
+  }
+  return libriFiltrati;
 }
 console.log(filtraLibriPerGenere(libri, "Fantasy"));
+
+/**
+ * tipo-07.ts
+Definisci un tipo di dato primitivo per rappresentare un'ora del giorno. 
+L'input dovrebbe essere una stringa con il formato "hh:mm", dove "hh"
+ rappresenta le ore e "mm" rappresenta i minuti. Crea una funzione che 
+ accetta un'ora del giorno come parametro e restituisce una stringa che 
+ indica se l'ora è del mattino, del pomeriggio o della sera.
+ */
+
+ let orario:string;
+
+  function verificaOrario(orario:string):string | undefined{
+    let oreMinuti=orario.split(':');
+    let ore=parseInt(oreMinuti[0]);
+    let minuti=parseInt(oreMinuti[1]);
+    if (ore>=0 && ore<=24){
+      if (minuti>=0 && minuti<=60){
+        if(ore<12){
+          return "Mattino";
+        }else if (ore<18){
+          return "Pomeriggio";
+        }else{
+          return "Sera";
+        }
+      }else{
+        return "Il formato orario non è valido";
+      }
+    }else {
+      return "Il formato orario non è valido";
+    }
+  }
+
+  orario="22:70";
+  let o=verificaOrario(orario);
+  console.log(o);
+
+  /**
+   * tipo-08.ts
+Crea un'interfaccia per rappresentare un animale con le 
+seguenti proprietà: nome (stringa), specie (stringa) e numero 
+di zampe (numero). Crea una funzione che accetta un array di
+ animali come parametro e restituisce un nuovo array contenente 
+ solo gli animali che hanno quattro zampe.
+   */
+
+ interface IAnimale {
+  nome:string;
+  specie:string;
+  nrZampe:number;
+ }
+let animali: IAnimale[]=[
+  {
+  nome:"cane",
+  specie:"mammifero",
+  nrZampe:4
+  },
+  {
+    nome:"pinguino",
+    specie:"uccello",
+    nrZampe:2
+  },
+  {
+    nome:"fenicottero",
+    specie:"uccello",
+    nrZampe:2
+  }
+]
+ function filtraZampe(animali:IAnimale[],nrZampe:number):IAnimale[]{
+  let zampeAnimali:IAnimale[]=[];
+  for (let zampa of animali){
+    if (zampa.nrZampe===4){
+    zampeAnimali.push(zampa);
+    }
+  }
+  return zampeAnimali;
+
+ }
+ console.log(filtraZampe(animali,4));
+
+ /**
+  * tipo-09.ts
+Definisci un tipo di dato primitivo per rappresentare un 
+indirizzo email. L'input dovrebbe essere una stringa con il 
+formato "nomeutente@dominio.com". Crea una funzione che accetta 
+un indirizzo email come parametro e restituisce true se 
+il formato è corretto e false altrimenti.
+  */
+ let mail: string;
+
+ function verificaMail(mail:string):boolean{
+  if (mail.includes("@") && mail.includes(".")){
+    return true;
+  }else{
+    return false;
+  }
+ }
+ mail ="sarabenticiao.com";
+ let m= verificaMail(mail);
+ console.log(m);
