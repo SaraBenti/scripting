@@ -10,7 +10,7 @@ Definisci una classe denominata `Cerchio` per rappresentare
          */
 
    import { Punto } from "./tipo03_classe_punto";
-class Cerchio {
+export class Cerchio {
   constructor(public centro: Punto, public raggio: number){
 
   }

@@ -428,13 +428,13 @@ il formato è corretto e false altrimenti.
   */
  let mail: string;
 
- function verificaMail(mail:string):boolean{
-  if (mail.includes("@") && mail.includes(".")){
+ function validaMail(mail:string):boolean{
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)){
     return true;
   }else{
     return false;
   }
  }
- mail ="sarabenticiao.com";
- let m= verificaMail(mail);
+ mail ="sarabenti@ciao.com";
+ let m= validaMail(mail);
  console.log(m);
