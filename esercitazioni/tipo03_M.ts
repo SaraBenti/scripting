@@ -1,3 +1,29 @@
+//-------------------------------DA CORREGGERE----------------------------------------------------------------------------------
+
+/**
+ * Definire le classi `MPunto`, `MCerchio` e `MRettangolo` come versioni estese delle rispettive classi `Punto`, `Cerchio`
+e `Rettangolo` definite negli esercizi precedenti.
+Le classi estese devono implementare una interfaccia comune `Movable` che consente il posizionamento nello spazio bidimensionale
+delle figure geometriche attraverso la chiamata al metodo moveTo(x1, y2).
+
+```
+interface Movable {
+    moveTo(x: number, y: number): void;
+}
+```
+
+Le classi estese devono implementare una interfaccia comune `Scalable` che consente di moltiplicare le dimensioni
+delle figure geometriche di un fattore numerico, attraverso la chiamata al metodo scaleBy(factor).
+
+```
+interface Scalable {
+    scaleBy(factor: number): void;
+}
+```
+
+Creare un'istanza di ogni classe e posizionarla nello spazio bidimensionale attraverso la chiamata al metodo moveTo(x1, y2),
+ modificare le dimensioni attraverso la chiamata al metodo scaleBy(factor) e stampare le informazioni relative alle figure geometriche.
+ */
 import { Punto } from "./tipo03_classe_punto";
 import { Cerchio } from "./tipo03_classe_cerchio";
 import { Rettangolo } from "./tipo03_classe_rettangolo";

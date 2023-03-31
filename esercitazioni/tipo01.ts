@@ -1,13 +1,8 @@
+//----------------------ESERCIZIO 1) SVOLTO IN CLASSE------------------------------------------------------------------
 /**
  * - tipo.01.ts -
- * Definisci un'interfaccia per rappresentare
- *  una persona con le seguenti proprietà:
- * nome (stringa), età (numero) e indirizzo
- *  (oggetto con proprietà strada, città e
- * stato). Crea una funzione che accetta
- * un'istanza di questa interfaccia come
- * parametro e stampa le proprietà della
- *  persona.
+ * Definisci un'interfaccia per rappresentare una persona con le seguenti proprietà:nome (stringa), età (numero) e indirizzo (oggetto con proprietà strada, città e stato). Crea una funzione che accetta
+ * un'istanza di questa interfaccia come parametro e stampa le proprietà della persona.
  */
 interface IPersona {
   nome: string;
@@ -18,23 +13,18 @@ interface IPersona {
     stato: string;
   };
 }
-/**
- * posso anche fare un'interfaccia a parte per l'indirizzo in questo modo
- * 
- * interface IIndirizzo{
- * strada: string;
-    citta: string;
-    stato: string;
- * }
-    e poi nell'interfaccia IPersona
-interface IPersona {
-  nome: string;
-  eta: number;
-  indirizzo: IIndirizzo;
-}
-
- */
-
+// posso anche fare un'interfaccia a parte per l'indirizzo in questo modo
+//  interface IIndirizzo{
+//    strada: string;
+//    citta: string;
+//    stato: string;
+//   }
+//e poi nell'interfaccia IPersona
+//  interface IPersona {
+//    nome: string;
+//    eta: number;
+//    indirizzo: IIndirizzo;
+//  }
 let personaI: IPersona = {
   //oggetti in json
   nome: "Mario",
@@ -59,13 +49,13 @@ function stampaIndirizzo(p: IPersona): void {
   );
 }
 stampaIndirizzo(personaI);
+//FINE ESERCIZIO 1)--------------------------------------------------------------------------------------------------------------------------------
 
+
+//---------------------------ESERCIZIO 2) SVOLTO IN CLASSE---------------------------------------------------------------------------------
 /**
  * tipo-02.ts
-Crea un tipo di dato enum per rappresentare
-i giorni della settimana. Scrivi una funzione che 
-accetta un giorno della settimana come parametro e
- stampa un messaggio di saluto appropriato in base al 
+Crea un tipo di dato enum per rappresentare i giorni della settimana. Scrivi una funzione che accetta un giorno della settimana come parametro e stampa un messaggio di saluto appropriato in base al 
  giorno.
  */
 enum Settimana {
@@ -102,7 +92,6 @@ function stampaSalutoGiornoConSwitch(g: Settimana): void {
       break;
   }
 }
-
 function stampaSalutoQuotidiano(g: Settimana): void {
   // uso una serie di if per determinare il giorno
 
@@ -127,13 +116,14 @@ stampaSalutoQuotidiano(giorno1);
 stampaSalutoGiornoConSwitch(giorno1);
 console.log("giorno 1 è ", giorno1); //in questo caso stampa giorno 1 è 4
 //devo assegnargli la stringa per avere venerdì
+//FINE ESERCIZIO 2)----------------------------------------------------------------------------------------------------------------------
 
+
+//---------------------------ESERCIZIO 3) SVOLTO IN CLASSE------------------------------------------------------------------------
 /**
  * tipo-03.ts
-Crea un'interfaccia per rappresentare un prodotto con le seguenti proprietà: 
-nome (stringa), prezzo (numero) e disponibilità (booleano). 
-Crea una funzione che accetta un array di prodotti come parametro e restituisce un 
-nuovo array contenente solo i prodotti disponibili.
+Crea un'interfaccia per rappresentare un prodotto con le seguenti proprietà: nome (stringa), prezzo (numero) e disponibilità (booleano). 
+Crea una funzione che accetta un array di prodotti come parametro e restituisce un nuovo array contenente solo i prodotti disponibili.
  */
 
 interface Prodotto {
@@ -180,16 +170,15 @@ function disponibile(listaProdotti: Prodotto[]): Prodotto[] {
 let listaDisponibili = disponibile(listaProdotti);
 
 console.log(listaDisponibili);
+//FINE ESERCIZIO 3)------------------------------------------------------------------------------------------------------------
 
+//--------------------------ESERCIZIO 4) SVOLTO IN CLASSE------------------------------------------------------------------
 /**
  * tipo-04.ts
-Definisci un tipo di dato per rappresentare un numero di telefono. 
-L'input dovrebbe essere una stringa con il formato "xxx-xxx-xxxx", 
-dove "x" rappresenta un cifra numerica. Crea una funzione che accetta un numero di telefono
- come parametro e restituisce true se il formato è corretto e false altrimenti.
+Definisci un tipo di dato per rappresentare un numero di telefono. L'input dovrebbe essere una stringa con il formato "xxx-xxx-xxxx", 
+dove "x" rappresenta un cifra numerica. Crea una funzione che accetta un numero di telefono come parametro e restituisce true se il formato è corretto e false altrimenti.
  */
 let telefono: string;
-
 function validaTelefono(telefono: string): boolean {
   if (
     telefono.length === 12 &&
@@ -216,32 +205,26 @@ function validaTelefono1(telefono: string): boolean {
     return false;
   }
 }
+//FINE ESERCIZIO 4)----------------------------------------------------------------------------------------------------------
 
+//---------------------------ESERCIZIO 5) DA CORREGGERE-----------------------------------------------------------------------
 /**
  * tipo-05.ts
-Definisci un tipo di dato per rappresentare un punteggio.
-Il punteggio dovrebbe essere un numero compreso tra 0 e 100.
-Crea una funzione che accetta un punteggio come parametro e
-restituisce una stringa che indica se il punteggio è insufficiente,
+Definisci un tipo di dato per rappresentare un punteggio Il punteggio dovrebbe essere un numero compreso tra 0 e 100.
+Crea una funzione che accetta un punteggio come parametro e restituisce una stringa che indica se il punteggio è insufficiente,
 sufficiente, buono o eccellente.
  */
 let punteggio: number;
 
-function riceviPunteggio(punteggio: number): string |undefined {
-  //ho cercato sulla documentazione perchè se ritornavo solo string mi dava errore
-  //Function lacks ending return statement and return type does not include 'undefined'.
-  //ho inserito |undefined ma non ho capito il perchè!!!!!!!!!!
+function riceviPunteggio(punteggio: number): string | undefined {
   if (punteggio >= 0 && punteggio <= 100) {
     if (punteggio < 60) {
       return "Punteggio insufficiente";
-    }
-    else if (punteggio >= 60 && punteggio < 75) {
+    } else if (punteggio >= 60 && punteggio < 75) {
       return "Punteggio sufficiente";
-    }
-    else if (punteggio >= 75 && punteggio < 90) {
+    } else if (punteggio >= 75 && punteggio < 90) {
       return "Punteggio buono";
-    }
-    else if (punteggio >= 90) {
+    } else if (punteggio >= 90) {
       return "Punteggio eccellente";
     }
   } else {
@@ -249,16 +232,15 @@ function riceviPunteggio(punteggio: number): string |undefined {
   }
 }
 punteggio = 105;
-let p=riceviPunteggio(punteggio);
+let p = riceviPunteggio(punteggio);
 console.log(p);
+//FINE ESERCIZIO 5)---------------------------------------------------------------------------------------------------------------------
+
+//----------------------------ESERCIZIO 6)SVOLTO IN CLASSE---------------------------------------------------------------------------------
 /**
  * tipo-06.ts
-Crea un'interfaccia per rappresentare un libro 
-con le seguenti proprietà: titolo (stringa), 
-autore (stringa), anno di pubblicazione (numero) 
-e genere (stringa). Crea un array di libri e scrivi 
-una funzione che accetta un genere come parametro e 
-restituisce un nuovo array contenente solo i libri 
+Crea un'interfaccia per rappresentare un libro con le seguenti proprietà: titolo (stringa), autore (stringa), anno di pubblicazione (numero) 
+e genere (stringa). Crea un array di libri e scrivi una funzione che accetta un genere come parametro e restituisce un nuovo array contenente solo i libri 
 del genere specificato.
  */
 interface Libro {
@@ -267,7 +249,6 @@ interface Libro {
   annoPubblicazione: number;
   genere: string;
 }
-
 // let libro1:Libro={
 //   titolo:"L'alchimista",
 //   autore:"Paulo Coelho",
@@ -338,103 +319,102 @@ function filtraLibriPerGenere(libri: Libro[], genere: string): Libro[] {
   return libriFiltrati;
 }
 console.log(filtraLibriPerGenere(libri, "Fantasy"));
+//FINE ESERCIZIO 6)------------------------------------------------------------------------------------------------------------------
 
+//------------------------------ESERCIZIO 7) DA CORREGGERE------------------------------------------------------------------------
 /**
  * tipo-07.ts
-Definisci un tipo di dato primitivo per rappresentare un'ora del giorno. 
-L'input dovrebbe essere una stringa con il formato "hh:mm", dove "hh"
- rappresenta le ore e "mm" rappresenta i minuti. Crea una funzione che 
- accetta un'ora del giorno come parametro e restituisce una stringa che 
- indica se l'ora è del mattino, del pomeriggio o della sera.
+Definisci un tipo di dato primitivo per rappresentare un'ora del giorno. L'input dovrebbe essere una stringa con il formato "hh:mm", dove "hh"
+rappresenta le ore e "mm" rappresenta i minuti. Crea una funzione che accetta un'ora del giorno come parametro e restituisce una stringa che 
+indica se l'ora è del mattino, del pomeriggio o della sera.
  */
 
- let orario:string;
+let orario: string;
 
-  function verificaOrario(orario:string):string | undefined{
-    let oreMinuti=orario.split(':');
-    let ore=parseInt(oreMinuti[0]);
-    let minuti=parseInt(oreMinuti[1]);
-    if (ore>=0 && ore<=24){
-      if (minuti>=0 && minuti<=60){
-        if(ore<12){
-          return "Mattino";
-        }else if (ore<18){
-          return "Pomeriggio";
-        }else{
-          return "Sera";
-        }
-      }else{
-        return "Il formato orario non è valido";
+function verificaOrario(orario: string): string | undefined {
+  let oreMinuti = orario.split(":");
+  let ore = parseInt(oreMinuti[0]);
+  let minuti = parseInt(oreMinuti[1]);
+  if (ore >= 0 && ore <= 24) {
+    if (minuti >= 0 && minuti <= 60) {
+      if (ore < 12) {
+        return "Mattino";
+      } else if (ore < 18) {
+        return "Pomeriggio";
+      } else {
+        return "Sera";
       }
-    }else {
+    } else {
       return "Il formato orario non è valido";
     }
+  } else {
+    return "Il formato orario non è valido";
   }
+}
 
-  orario="22:70";
-  let o=verificaOrario(orario);
-  console.log(o);
+orario = "22:70";
+let o = verificaOrario(orario);
+console.log(o);
+//FINE ESERCIZIO 7)---------------------------------------------------------------------------------------------------------
 
-  /**
+//-------------------------ESERCIZIO 8) DA CORREGGERE-------------------------------------------------------------------------------
+/**
    * tipo-08.ts
-Crea un'interfaccia per rappresentare un animale con le 
-seguenti proprietà: nome (stringa), specie (stringa) e numero 
-di zampe (numero). Crea una funzione che accetta un array di
- animali come parametro e restituisce un nuovo array contenente 
- solo gli animali che hanno quattro zampe.
+Crea un'interfaccia per rappresentare un animale con le seguenti proprietà: nome (stringa), specie (stringa) e numero di zampe (numero). Crea una funzione che accetta un array di
+animali come parametro e restituisce un nuovo array contenente solo gli animali che hanno quattro zampe.
    */
 
- interface IAnimale {
-  nome:string;
-  specie:string;
-  nrZampe:number;
- }
-let animali: IAnimale[]=[
+interface IAnimale {
+  nome: string;
+  specie: string;
+  nrZampe: number;
+}
+let animali: IAnimale[] = [
   {
-  nome:"cane",
-  specie:"mammifero",
-  nrZampe:4
+    nome: "cane",
+    specie: "mammifero",
+    nrZampe: 4,
   },
   {
-    nome:"pinguino",
-    specie:"uccello",
-    nrZampe:2
+    nome: "pinguino",
+    specie: "uccello",
+    nrZampe: 2,
   },
   {
-    nome:"fenicottero",
-    specie:"uccello",
-    nrZampe:2
-  }
-]
- function filtraZampe(animali:IAnimale[],nrZampe:number):IAnimale[]{
-  let zampeAnimali:IAnimale[]=[];
-  for (let zampa of animali){
-    if (zampa.nrZampe===4){
-    zampeAnimali.push(zampa);
+    nome: "fenicottero",
+    specie: "uccello",
+    nrZampe: 2,
+  },
+];
+function filtraZampe(animali: IAnimale[], nrZampe: number): IAnimale[] {
+  let zampeAnimali: IAnimale[] = [];
+  for (let zampa of animali) {
+    if (zampa.nrZampe === 4) {
+      zampeAnimali.push(zampa);
     }
   }
   return zampeAnimali;
+}
+console.log(filtraZampe(animali, 4));
+//FINE ESERCIZIO 8)-----------------------------------------------------------------------------------------------------------
 
- }
- console.log(filtraZampe(animali,4));
-
- /**
+//--------------------------ESERCIZIO 9)DA CORREGGERE-----------------------------------------------------------------------------
+/**
   * tipo-09.ts
-Definisci un tipo di dato primitivo per rappresentare un 
-indirizzo email. L'input dovrebbe essere una stringa con il 
-formato "nomeutente@dominio.com". Crea una funzione che accetta 
-un indirizzo email come parametro e restituisce true se 
+Definisci un tipo di dato primitivo per rappresentare un indirizzo email. L'input dovrebbe essere una stringa con il 
+formato "nomeutente@dominio.com". Crea una funzione che accetta un indirizzo email come parametro e restituisce true se 
 il formato è corretto e false altrimenti.
   */
- let mail: string;
+let mail: string;
 
- function validaMail(mail:string):boolean{
-  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)){
+function validaMail(mail: string): boolean {
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
     return true;
-  }else{
+  } else {
     return false;
   }
- }
- mail ="sarabenti@ciao.com";
- let m= validaMail(mail);
- console.log(m);
+}
+mail = "sarabenti@ciao.com";
+let m = validaMail(mail);
+console.log(m);
+//FINE ESERCIZIO 9)-----------------------------------------------------------------------------------------------------------

@@ -1,6 +1,6 @@
+//-------------------------ESERCIZIO 1) SVOLTO IN CLASSE-------------------------------------------------------------------
 /**
- *   1. Creazione di un array di numeri e utilizzo del metodo filter() per restituire 
- * solo i numeri pari.
+ *   1. Creazione di un array di numeri e utilizzo del metodo filter() per restituire solo i numeri pari.
  */
 //si può usare const al posto di let se la variabile non la modificheremo più
 //(ulteriore controllo
@@ -24,7 +24,9 @@ for (let numero of numeri) {
 const numeriPari2: number[] = numeri.filter(
   (numero: number) => numero % 2 === 0
 );
+//FINE ESERCIZIO 1)------------------------------------------------------------------------------------------------------------------
 
+//------------------------ESERCIZIO 2)SVOLTO IN CLASSE-----------------------------------------------------------------------------------
 /**
  *  2. Creazione di un array di stringhe e utilizzo del metodo map() per aggiungere una lettera alla fine di ogni stringa.
  */
@@ -33,7 +35,6 @@ const nomiConS: string[] = [];
 for (let nome of nomi) {
   nomiConS.push(nome + "s");
 }
-
 console.log("=====[ Nomi con S 1 ]=====", nomiConS);
 
 const nomiConS2: string[] = nomi.map((x) => {
@@ -43,10 +44,11 @@ const nomiConS2: string[] = nomi.map((x) => {
 });
 //ancora più accorciato
 //const nomiConS2:string[]=nomi.map(x:string=>x+"s");
+//FINE ESERCIZIO 2)---------------------------------------------------------------------------------------------------------------------
 
+//-------------------------------ESERCIZIO 3) DA CORREGGERE-------------------------------------------------------------------------------
 /**
- *  3. Creazione di un array di oggetti rappresentanti
- *  prodotti in un negozio online. Utilizzo del metodo filter() per
+ *  3. Creazione di un array di oggetti rappresentanti prodotti in un negozio online. Utilizzo del metodo filter() per
 restituire solo i prodotti con un prezzo inferiore a 50 euro. 
  */
 interface IProdotti{
@@ -73,7 +75,7 @@ const prodottiOnline: IProdotti[] = [
 ];
 let prodotti=prodottiOnline.filter(prod=>prod.prezzo<50)
 console.log(prodotti);
-
+//SECONDA MODALITA'
 //altro metodo senza filter
 //let prodotto:string[]=[];
 //for(let oggetti of prodottiOnline){
@@ -81,31 +83,31 @@ console.log(prodotti);
 //    prodotto.push(oggetti.nomeProdotto);
 // }  
 //}
+//FINE ESERCIZIO 3)------------------------------------------------------------------------------------------------------------------------
 
+//----------------------------ESERCIZIO 4)DA CORREGGERE---------------------------------------------------------------------------
 /**
- *  4. Creazione di un array di numeri e utilizzo
- * del metodo find() per trovare il primo numero
- * maggiore di 5.
+ *  4. Creazione di un array di numeri e utilizzo del metodo find() per trovare il primo numero maggiore di 5.
  */
 const serieDiNumeri:number[]=[1,2,3,4,5,6,7];
 const primoN=serieDiNumeri.find(elemento=>elemento>5);
 console.log(primoN);
+//FINE ESERCIZIO 4)---------------------------------------------------------------------------------------------------------------------
+
+//---------------------------ESERCIZIO 5)DA CORREGGERE------------------------------------------------------------------------------
 /**
- * 5. Creazione di un array di stringhe 
- * rappresentanti nomi di città. Utilizzo del metodo 
- * filter() per restituire solo le città che iniziano
-    con la lettera "B".
+ * 5. Creazione di un array di stringhe rappresentanti nomi di città. Utilizzo del metodo filter() per restituire solo le città che iniziano
+con la lettera "B".
  */
 const citta:string[]=['Milano','Roma','Bologna','Napoli','Bari'];
 const cittaB=citta.filter(city=>city.charAt(0)==='B');
 console.log(cittaB);
+//FINE ESERCIZIO 5)---------------------------------------------------------------------------------------------------------------
 
+//---------------------------ESERCIZIO 6)DA CORREGGERE---------------------------------------------------------------------------------
 /**
- *   6. Creazione di un array di oggetti
- * rappresentanti persone con proprietà come nome
- * e età. Utilizzo del metodo map() per creare un
- * array di stringhe che contiene solo i nomi
- * delle persone.
+ *   6. Creazione di un array di oggetti rappresentanti persone con proprietà come nome e età. Utilizzo del metodo map() per creare un
+ * array di stringhe che contiene solo i nomi delle persone.
  */
 interface IPerson{
   name:string,
@@ -127,12 +129,12 @@ const person:IPerson[]=[
 ];
 const onlyName=person.map(value=>value.name);
 console.log(onlyName);
+//FINE ESERCIZIO 6----------------------------------------------------------------------------------------------------------------
+
+//-------------------------------ESERCIZIO 7) DA CORREGGERE----------------------------------------------------------------
 /**
- *   7. Creazione di un array di oggetti 
- * rappresentanti libri con proprietà come titolo, 
- * autore e prezzo. Utilizzo del metodo filter() per
-     restituire solo i libri con un prezzo compreso 
-     tra 10 e 20 euro.
+ *   7. Creazione di un array di oggetti rappresentanti libri con proprietà come titolo, autore e prezzo. Utilizzo del metodo filter() per
+restituire solo i libri con un prezzo compreso tra 10 e 20 euro.
  */
 interface IBook{
   title:string,
@@ -163,34 +165,34 @@ const book:IBook[]=[
 ];
  const books=book.filter(libri=>libri.price>10 && libri.price<20);
  console.log(books);
+//FINE ESERCIZIO 7)----------------------------------------------------------------------------------------------------------
 
+//-----------------------ESERCIZIO 8) SVOLTO IN CLASSE---------------------------------------------------------------------------------
 /**
- * 8. Creazione di un array di numeri e utilizzo del metodo map()
- * per calcolare il quadrato di ogni numero.
+ * 8. Creazione di un array di numeri e utilizzo del metodo map()per calcolare il quadrato di ogni numero.
  */
 const numeri2: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // const numeriAlQuadrato1: number[] = numeri2.map( (numero) => numero * numero );
 const numeriAlQuadrato1: number[] = numeri2.map((numero) =>
   Math.pow(numero, 2)
 );
+//FINE ESERCIZIO 8)-----------------------------------------------------------------------------------------------------------------
 
+//---------------------ESERCIZIO 9) DA CORREGGERE-------------------------------------------------------------------------------------
 /**
- *   9. Creazione di un array di stringhe 
- * rappresentanti nomi di animali. Utilizzo del 
- * metodo find() per trovare il primo animale che 
- * inizia con
-     la lettera "C".
+ *   9. Creazione di un array di stringhe rappresentanti nomi di animali. Utilizzo del metodo find() per trovare il primo animale che 
+inizia con la lettera "C".
  */
 const animals:string[]=['Gallina','Gatto','Cane','Coniglio','Lepre'];
 const animalC=animals.filter(animali=>animali.charAt(0)==='C');
 console.log(animalC);
+//FINE ESERCIZIO 9)---------------------------------------------------------------------------------------------------------------------
+
+//-----------------------ESERCIZIO 10) DA CORREGGERE-------------------------------------------------------------------------------------
 /**
-      * 10. Creazione di un array di oggetti 
-      * rappresentanti film con proprietà come titolo
-      * , regista e anno di uscita. Utilizzo del 
-      * metodo filter()
-      per restituire solo i film usciti dopo il 2000.
-      */
+* 10. Creazione di un array di oggetti rappresentanti film con proprietà come titolo, regista e anno di uscita. Utilizzo del metodo filter()
+per restituire solo i film usciti dopo il 2000.
+*/
 interface IFilm{
   titolo:string,
   regista:string,
@@ -225,3 +227,4 @@ const films: IFilm[]=[
 ];
 const film=films.filter(filmDuemila=>filmDuemila.anno>2000);
 console.log(film);
+//FINE ESERCIZIO 10)-----------------------------------------------------------------------------------------------------------------

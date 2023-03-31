@@ -1,18 +1,16 @@
+//-------------------------SVOLTO IN CLASSE---------------------------------------------------------------
+
+
+
 /**
  * 
 ## classi-01.ts
 
-Definisci una classe denominata `Punto` per
- rappresentare un punto in uno spazio bidimensionale.
-  La classe deve contenere le seguenti proprietà: x
-   (numero), y (numero). La classe deve contenere un
-    metodo per calcolare la distanza tra il punto e 
-    l'origine (0, 0). La classe deve contenere un metodo 
-    per calcolare la distanza tra il punto e un altro 
-    punto passato come parametro. Crea un'istanza della 
-    classe e stampa la distanza tra il punto e l'origine 
-    e la distanza tra il punto e un altro punto.
- */
+Definisci una classe denominata `Punto` per rappresentare un punto in uno spazio bidimensionale.La classe deve contenere le seguenti proprietà: x
+(numero), y (numero). La classe deve contenere un metodo per calcolare la distanza tra il punto e l'origine (0, 0). La classe deve contenere un metodo 
+per calcolare la distanza tra il punto e un altro punto passato come parametro. Crea un'istanza della classe e stampa la distanza tra il punto e l'origine 
+e la distanza tra il punto e un altro punto.
+*/
 //class Punto{
         // x: number;
         // y: number;

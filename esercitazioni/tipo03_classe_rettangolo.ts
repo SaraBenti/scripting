@@ -1,14 +1,13 @@
+//------------------------------------------DA CORREGGERE--------------------------------------------------------------------
+
+
+
 /**
  * ## classi-03.ts
 
-Definisci una classe denominata `Rettangolo` per rappresentare 
-un rettangolo in uno spazio bidimensionale. La classe deve 
-contenere le seguenti proprietà: base (numero), 
-altezza (numero). La classe deve contenere un metodo per 
-calcolare l'area del rettangolo. La classe deve contenere un 
-metodo per calcolare il perimetro del rettangolo. Crea 
-un'istanza della classe e stampa l'area e il perimetro del 
-rettangolo.
+Definisci una classe denominata `Rettangolo` per rappresentare un rettangolo in uno spazio bidimensionale. La classe deve contenere le seguenti proprietà: base (numero), 
+altezza (numero). La classe deve contenere un metodo per calcolare l'area del rettangolo. La classe deve contenere un metodo per calcolare il perimetro del rettangolo. Crea 
+un'istanza della classe e stampa l'area e il perimetro del rettangolo.
  */
  export class Rettangolo{
     constructor(
