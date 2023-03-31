@@ -27,3 +27,4 @@ console.log("area del cerchio: ", c1.getArea());
 console.log("perimetro del cerchio: ", c1.getPerimetro());
 // non si mette il console log dentro a file con 
 //le classi, solitamente si fanno file a parte
+

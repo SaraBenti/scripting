@@ -67,10 +67,12 @@ const prodottiOnline: object[] = [
   },
 ];
 const pr:number[]=[];
-for(let prodotto of prodottiOnline){
-    if(prodotto['prezzo']<50){
-        prezzi.push(nomeProdotto)
-    }
+for(let prezzi of prodottiOnline){
+  for (let p of prezzi){
+  if(p.prezzo <50){
+    pr.push(p);
+  }
+}   
 }
 
 
