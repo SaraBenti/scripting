@@ -1,7 +1,9 @@
 /**
- *   1. Creazione di un array di numeri e utilizzo del metodo filter() per restituire solo i numeri pari.
+ *   1. Creazione di un array di numeri e utilizzo del metodo filter() per restituire 
+ * solo i numeri pari.
  */
-//si può usare const al posto di let se la variabile non la modificheremo più(ulteriore controllo
+//si può usare const al posto di let se la variabile non la modificheremo più
+//(ulteriore controllo
 //nel caso per sbaglio si cambi)
 const numeri: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const numeriPari: number[] = [];
@@ -12,7 +14,6 @@ for (let numero of numeri) {
     numeriPari.push(numero);
   }
 }
-
 // function filtraNumeriPari(numero:number):boolean{
 //     return numero%2===0;
 // }
@@ -48,7 +49,11 @@ const nomiConS2: string[] = nomi.map((x) => {
  *  prodotti in un negozio online. Utilizzo del metodo filter() per
 restituire solo i prodotti con un prezzo inferiore a 50 euro. 
  */
-const prodottiOnline: object[] = [
+interface IProdotti{
+  nomeProdotto:string,
+  prezzo:number
+}
+const prodottiOnline: IProdotti[] = [
   {
     nomeProdotto: "zaino",
     prezzo: 55,
@@ -66,38 +71,62 @@ const prodottiOnline: object[] = [
     prezzo: 52,
   },
 ];
-const pr:number[]=[];
-for(let prezzi of prodottiOnline){
-  for (let p of prezzi){
-  if(p.prezzo <50){
-    pr.push(p);
-  }
-}   
-}
+let prodotti=prodottiOnline.filter(prod=>prod.prezzo<50)
+console.log(prodotti);
 
-
+//altro metodo senza filter
+//let prodotto:string[]=[];
+//for(let oggetti of prodottiOnline){
+//  if(oggetti.prezzo <50){
+//    prodotto.push(oggetti.nomeProdotto);
+// }  
+//}
 
 /**
  *  4. Creazione di un array di numeri e utilizzo
  * del metodo find() per trovare il primo numero
  * maggiore di 5.
  */
-
+const serieDiNumeri:number[]=[1,2,3,4,5,6,7];
+const primoN=serieDiNumeri.find(elemento=>elemento>5);
+console.log(primoN);
 /**
  * 5. Creazione di un array di stringhe 
  * rappresentanti nomi di città. Utilizzo del metodo 
  * filter() per restituire solo le città che iniziano
     con la lettera "B".
  */
+const citta:string[]=['Milano','Roma','Bologna','Napoli','Bari'];
+const cittaB=citta.filter(city=>city.charAt(0)==='B');
+console.log(cittaB);
 
 /**
  *   6. Creazione di un array di oggetti
  * rappresentanti persone con proprietà come nome
  * e età. Utilizzo del metodo map() per creare un
- * array distringhe che contiene solo i nomi
+ * array di stringhe che contiene solo i nomi
  * delle persone.
  */
-
+interface IPerson{
+  name:string,
+  age:number
+}
+const person:IPerson[]=[
+  {
+    name:'Sara',
+    age:20
+  },
+  {
+    name:'Maria',
+    age:30
+  },
+  {
+    name:'Valeria',
+    age:40
+  }
+];
+const onlyName=person.map(value=>value.name);
+console.log(onlyName);
 /**
  *   7. Creazione di un array di oggetti 
  * rappresentanti libri con proprietà come titolo, 
@@ -105,6 +134,35 @@ for(let prezzi of prodottiOnline){
      restituire solo i libri con un prezzo compreso 
      tra 10 e 20 euro.
  */
+interface IBook{
+  title:string,
+  author:string,
+  price:number
+}
+const book:IBook[]=[
+  {
+    title:'Uno,nessuno,centomila',
+    author:'Luigi Pirandello',
+    price: 8.90
+  },
+  {
+    title:'Oscura e celeste',
+    author:'Marco Malvaldi',
+    price: 17.90
+  },
+  {
+    title:'Oltre l\'inverno',
+    author:'Isabel Allende',
+    price: 16.20
+  },
+  {
+    title:'Spare.Il minore',
+    author:'Prince Harry',
+    price: 23.80
+  }
+];
+ const books=book.filter(libri=>libri.price>10 && libri.price<20);
+ console.log(books);
 
 /**
  * 8. Creazione di un array di numeri e utilizzo del metodo map()
@@ -123,7 +181,9 @@ const numeriAlQuadrato1: number[] = numeri2.map((numero) =>
  * inizia con
      la lettera "C".
  */
-
+const animals:string[]=['Gallina','Gatto','Cane','Coniglio','Lepre'];
+const animalC=animals.filter(animali=>animali.charAt(0)==='C');
+console.log(animalC);
 /**
       * 10. Creazione di un array di oggetti 
       * rappresentanti film con proprietà come titolo
@@ -131,3 +191,37 @@ const numeriAlQuadrato1: number[] = numeri2.map((numero) =>
       * metodo filter()
       per restituire solo i film usciti dopo il 2000.
       */
+interface IFilm{
+  titolo:string,
+  regista:string,
+  anno:number
+}
+const films: IFilm[]=[
+  {
+    titolo:'La vita è bella',
+    regista:'Roberto Benigni',
+    anno: 1997
+  },
+  {
+    titolo:'The departed',
+    regista:'Martin Scorsese',
+    anno: 2006
+  },
+  {
+    titolo:'Il padrino',
+    regista:'Francis Ford Coppola',
+    anno: 1972
+  },
+  {
+    titolo:'Hannibal',
+    regista:'Ridley Scott',
+    anno: 2001
+  },
+  {
+    titolo:'Codice d\'onore',
+    regista:'Rob Reiner',
+    anno: 1992
+  }
+];
+const film=films.filter(filmDuemila=>filmDuemila.anno>2000);
+console.log(film);
