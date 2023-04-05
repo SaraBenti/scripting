@@ -113,7 +113,7 @@ interface IPerson{
   name:string,
   age:number
 }
-const person:IPerson[]=[
+const personList:IPerson[]=[//usare solo nomi di variabili che rispecchino cosa c'è dentro
   {
     name:'Sara',
     age:20
@@ -127,7 +127,7 @@ const person:IPerson[]=[
     age:40
   }
 ];
-const onlyName=person.map(value=>value.name);
+const onlyName=personList.map(value=>value.name);
 console.log(onlyName);
 //FINE ESERCIZIO 6----------------------------------------------------------------------------------------------------------------
 
@@ -141,7 +141,7 @@ interface IBook{
   author:string,
   price:number
 }
-const book:IBook[]=[
+const bookList:IBook[]=[
   {
     title:'Uno,nessuno,centomila',
     author:'Luigi Pirandello',
@@ -163,7 +163,7 @@ const book:IBook[]=[
     price: 23.80
   }
 ];
- const books=book.filter(libri=>libri.price>10 && libri.price<20);
+ const books=bookList.filter(libro=>libro.price>10 && libro.price<20);
  console.log(books);
 //FINE ESERCIZIO 7)----------------------------------------------------------------------------------------------------------
 
@@ -198,7 +198,7 @@ interface IFilm{
   regista:string,
   anno:number
 }
-const films: IFilm[]=[
+const filmLista: IFilm[]=[
   {
     titolo:'La vita è bella',
     regista:'Roberto Benigni',
@@ -225,6 +225,6 @@ const films: IFilm[]=[
     anno: 1992
   }
 ];
-const film=films.filter(filmDuemila=>filmDuemila.anno>2000);
-console.log(film);
+const elencoFilmDopoDuemila=filmLista.filter(film=>film.anno>2000);
+console.log(elencoFilmDopoDuemila);
 //FINE ESERCIZIO 10)-----------------------------------------------------------------------------------------------------------------
