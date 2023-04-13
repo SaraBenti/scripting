@@ -27,13 +27,32 @@ livello100() fornisce il livello corrente della carica in % del valore massimo
 
 B. Rendere parametrizzabile il valore 5000 all'inizializzazione della classe
  */
+//modalità di costruire le classi con varie inizializzazioni
+class Accumulatore1 {
+    livelloCarica: number = 0;
+    livelloMAX: number;
+
+    constructor(liv: number = 0, max?: number) {
+        this.livelloCarica = liv;
+
+        if (max != null) {
+            this.livelloMAX = max;
+        } else {
+            this.livelloMAX = 5000;
+        }
+    }
+}
+let a = new Accumulatore1();
+
+
+
 class Batteria{
     public caricaBatteria:number=5000;
     constructor(caricaBatteria:number){
         this.caricaBatteria=caricaBatteria;
     }
     
-    carica(n:number){
+    carica(n:number){//manca :void
         if (this.caricaBatteria+n<=5000){
             return this.caricaBatteria+n;
         }else{
